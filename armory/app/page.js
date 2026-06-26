@@ -1,5 +1,6 @@
 import CoreFeatures from "./CoreFeatures";
 import PricingMatrix from "./PricingMatrix";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Product", hasMenu: true },
@@ -62,6 +63,7 @@ export default function Home() {
           </ul>
 
           <div className="nav-actions" aria-label="Account actions">
+            <ThemeToggle />
             <a href="#" className="button button-secondary">
               Log in
             </a>

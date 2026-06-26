@@ -65,7 +65,7 @@ export default function CoreFeatures() {
         Built for teams that need pipelines to stay observable, recoverable, and fast as usage grows.
       </p>
 
-      <div className="bento-grid" aria-hidden={isMobile}>
+      <div className="bento-grid">
         {features.map((feature, index) => (
           <article
             className={`bento-item bento-item-${index + 1} ${activeIndex === index ? "is-active" : ""}`}
@@ -92,13 +92,13 @@ export default function CoreFeatures() {
         ))}
       </div>
 
-      <div className="feature-detail" aria-hidden={isMobile}>
+      <div className="feature-detail">
         <span>{activeFeature.eyebrow}</span>
         <strong>{activeFeature.title}</strong>
         <p>{activeFeature.summary}</p>
       </div>
 
-      <div className="feature-accordion" aria-hidden={!isMobile}>
+      <div className="feature-accordion">
         {features.map((feature, index) => {
           const isOpen = activeIndex === index;
 
