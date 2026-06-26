@@ -1,3 +1,5 @@
+import CoreFeatures from "./CoreFeatures";
+
 const navItems = [
   { label: "Product", hasMenu: true },
   { label: "Solutions", hasMenu: true },
@@ -58,9 +60,9 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-title">
           <p className="hero-trust-pill">
             <span className="hero-trust-avatars" aria-hidden="true">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="" />
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="" />
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="" />
+              <span><img src="/icons/cube-16-solid.svg" alt="" /></span>
+              <span><img src="/icons/chart-pie.svg" alt="" /></span>
+              <span><img src="/icons/link.svg" alt="" /></span>
             </span>
             Trusted by 1,200+ data teams
           </p>
@@ -131,6 +133,8 @@ export default function Home() {
               </p>
             </div>
           </section>
+
+          <CoreFeatures />
         </section>
       </main>
     </>
