@@ -15,6 +15,9 @@ const companies = [
   { name: "Datastream", icon: "/icons/link.svg" }
 ];
 
+const painStory =
+  "Manual data work quietly compounds as teams scale: pipelines drift, reports arrive late, handoffs break, and every new workflow adds another place for critical information to stall.";
+
 export default function Home() {
   return (
     <>
@@ -100,25 +103,32 @@ export default function Home() {
             </ul>
           </section>
 
-          <section className="problem-section" aria-labelledby="problem-title">
-            <p className="section-kicker">Problem / Pain Section</p>
-            <h2 id="problem-title">Manual data work slows every team before scale does.</h2>
-            <div className="problem-grid">
-              <article>
-                <span>01</span>
-                <h3>Scattered workflows</h3>
-                <p>Teams lose hours moving data between tools, spreadsheets, and brittle scripts.</p>
-              </article>
-              <article>
-                <span>02</span>
-                <h3>Delayed insights</h3>
-                <p>Critical reporting arrives late because pipelines depend on manual checks.</p>
-              </article>
-              <article>
-                <span>03</span>
-                <h3>Scaling breaks process</h3>
-                <p>More volume creates more cleanup, more failures, and more operational drag.</p>
-              </article>
+          <section className="problem-section" aria-label="Problem and pain section">
+            <div className="story-orbit" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div className="story-content">
+              <p className="story-label">Problem / Pain Section</p>
+              <p className="scroll-story">
+                {painStory.split(" ").map((word, index) => {
+                  const start = 8 + index * 2.2;
+                  const end = start + 8;
+
+                  return (
+                    <span
+                      key={`${word}-${index}`}
+                      style={{
+                        "--word-start": `${start}%`,
+                        "--word-end": `${end}%`
+                      }}
+                    >
+                      {word}
+                    </span>
+                  );
+                })}
+              </p>
             </div>
           </section>
         </section>
