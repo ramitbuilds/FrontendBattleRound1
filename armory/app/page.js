@@ -1,4 +1,5 @@
 import CoreFeatures from "./CoreFeatures";
+import PricingMatrix from "./PricingMatrix";
 
 const navItems = [
   { label: "Product", hasMenu: true },
@@ -135,6 +136,8 @@ export default function Home() {
           </section>
 
           <CoreFeatures />
+
+          <PricingMatrix />
         </section>
       </main>
     </>

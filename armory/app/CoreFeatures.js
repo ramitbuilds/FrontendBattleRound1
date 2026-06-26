@@ -58,14 +58,14 @@ export default function CoreFeatures() {
   const activeFeature = useMemo(() => features[activeIndex], [activeIndex]);
 
   return (
-    <section className="features-section" aria-labelledby="features-title">
+    <section className="features-section" aria-labelledby="features-title" suppressHydrationWarning>
       <p className="section-label">Core Feature Showcase</p>
       <h2 id="features-title">A control layer for automated data work.</h2>
       <p className="features-copy">
         Built for teams that need pipelines to stay observable, recoverable, and fast as usage grows.
       </p>
 
-      <div className="bento-grid" aria-hidden={isMobile} inert={isMobile ? true : undefined}>
+      <div className="bento-grid" aria-hidden={isMobile}>
         {features.map((feature, index) => (
           <article
             className={`bento-item bento-item-${index + 1} ${activeIndex === index ? "is-active" : ""}`}
@@ -92,13 +92,13 @@ export default function CoreFeatures() {
         ))}
       </div>
 
-      <div className="feature-detail" aria-hidden={isMobile} inert={isMobile ? true : undefined}>
+      <div className="feature-detail" aria-hidden={isMobile}>
         <span>{activeFeature.eyebrow}</span>
         <strong>{activeFeature.title}</strong>
         <p>{activeFeature.summary}</p>
       </div>
 
-      <div className="feature-accordion" aria-hidden={!isMobile} inert={!isMobile ? true : undefined}>
+      <div className="feature-accordion" aria-hidden={!isMobile}>
         {features.map((feature, index) => {
           const isOpen = activeIndex === index;
 
