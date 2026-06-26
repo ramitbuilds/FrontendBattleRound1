@@ -1986,3 +1986,28 @@ h1 {
 [data-theme="dark"] .brand-mark img {
   filter: invert(1);
 }
+
+html.is-theming,
+html.is-theming *,
+html.is-theming *::before,
+html.is-theming *::after {
+  transition: background-color 500ms ease, color 500ms ease, border-color 500ms ease, box-shadow 500ms ease !important;
+}
+
+html.is-theming::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.12) 48%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.12) 52%, transparent 70%);
+  animation: themeSweep 500ms ease-out forwards;
+}
+
+@keyframes themeSweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+

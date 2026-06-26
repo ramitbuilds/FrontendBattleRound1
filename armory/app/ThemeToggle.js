@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function ThemeToggle() {
   const [dark, setDark] = useState(false);
@@ -10,12 +10,18 @@ export default function ThemeToggle() {
     setDark(current === "dark");
   }, []);
 
-  const toggle = () => {
+  const toggle = useCallback(() => {
     const next = !dark;
-    setDark(next);
+
+    document.documentElement.classList.add("is-theming");
     document.documentElement.setAttribute("data-theme", next ? "dark" : "light");
     localStorage.setItem("theme", next ? "dark" : "light");
-  };
+    setDark(next);
+
+    setTimeout(() => {
+      document.documentElement.classList.remove("is-theming");
+    }, 600);
+  }, [dark]);
 
   return (
     <button className="theme-toggle" onClick={toggle} type="button" aria-label={`Switch to ${dark ? "light" : "dark"} theme`}>
