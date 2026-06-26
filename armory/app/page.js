@@ -1,6 +1,7 @@
 import CoreFeatures from "./CoreFeatures";
 import PricingMatrix from "./PricingMatrix";
 import ThemeToggle from "./ThemeToggle";
+import FAQ from "./FAQ";
 
 const navItems = [
   { label: "Product", hasMenu: true },
@@ -155,6 +156,8 @@ export default function Home() {
           <CoreFeatures />
 
           <PricingMatrix />
+
+          <FAQ />
         </section>
       </main>
 
