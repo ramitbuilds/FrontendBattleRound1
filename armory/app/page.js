@@ -18,6 +18,21 @@ const companies = [
   { name: "Datastream", icon: "/icons/link.svg" }
 ];
 
+const footerColumns = [
+  {
+    title: "Sitemap",
+    links: ["Product", "Solutions", "Pricing", "Company"]
+  },
+  {
+    title: "Platform",
+    links: ["Pipeline Autopilot", "Signal QA", "Live Ops Matrix", "Adaptive Connectors"]
+  },
+  {
+    title: "Resources",
+    links: ["Docs", "Security", "Customer Stories", "Support"]
+  }
+];
+
 const painStory =
   "Manual data work quietly compounds as teams scale: pipelines drift, reports arrive late, handoffs break, and every new workflow adds another place for critical information to stall.";
 
@@ -140,6 +155,45 @@ export default function Home() {
           <PricingMatrix />
         </section>
       </main>
+
+      <footer className="site-footer">
+        <section className="footer-panel" aria-labelledby="footer-title">
+          <div className="footer-top">
+            <div className="footer-newsletter">
+              <h2 id="footer-title">Join data teams automating work before it slows growth.</h2>
+              <form>
+                <label htmlFor="footer-email">Email address</label>
+                <div>
+                  <input id="footer-email" name="email" placeholder="Enter your email" type="email" />
+                  <button type="submit">Subscribe</button>
+                </div>
+              </form>
+              <p>By subscribing, you agree to receive product updates from Armory.</p>
+              <ul className="footer-socials" aria-label="Social links">
+                <li><a href="#" aria-label="Search"><img src="/icons/search.svg" alt="" /></a></li>
+                <li><a href="#" aria-label="Connections"><img src="/icons/link.svg" alt="" /></a></li>
+                <li><a href="#" aria-label="Analytics"><img src="/icons/chart-pie.svg" alt="" /></a></li>
+                <li><a href="#" aria-label="Growth"><img src="/icons/arrow-trending-up.svg" alt="" /></a></li>
+              </ul>
+            </div>
+
+            <nav className="footer-links" aria-label="Footer navigation">
+              {footerColumns.map((column) => (
+                <div key={column.title}>
+                  <h3>{column.title}</h3>
+                  <ul>
+                    {column.links.map((link) => (
+                      <li key={link}><a href="#">{link}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </nav>
+          </div>
+
+          <p className="footer-wordmark">Armory</p>
+        </section>
+      </footer>
     </>
   );
 }
